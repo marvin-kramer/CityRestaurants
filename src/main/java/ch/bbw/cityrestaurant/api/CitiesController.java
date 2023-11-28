@@ -16,6 +16,11 @@ public class CitiesController {
     @Autowired
     private CityRepository cityRepository;
 
+    @GetMapping("")
+    public List<City> searchCitiesByName(@RequestParam(required = false, defaultValue = "") String name) {
+        return cityRepository.findCitiesByNameStartsWithIgnoreCase(name);
+    }
+
     @PostMapping("")
     public City createCity(@RequestBody City city) {
         return cityRepository.save(city);
@@ -24,11 +29,6 @@ public class CitiesController {
     @GetMapping("{id}")
     public Optional<City> getCityById(@PathVariable String id){
         return cityRepository.findById(id);
-    }
-
-    @GetMapping("")
-    public List<City> searchCitiesByName(@RequestParam String name) {
-        return cityRepository.findCitiesByNameStartsWithIgnoreCase(name);
     }
 
 }
