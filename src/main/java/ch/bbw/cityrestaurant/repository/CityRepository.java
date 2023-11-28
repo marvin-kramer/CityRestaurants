@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface CityRepository extends MongoRepository<City, String> {
-    City findByName(String name);
+    List<City> findCitiesByNameStartsWithIgnoreCase(String name);
 }
 

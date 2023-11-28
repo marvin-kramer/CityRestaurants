@@ -6,22 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("cities")
 public class CitiesController {
 
     @Autowired
     private CityRepository cityRepository;
 
-    @GetMapping("cities")
-    public List<City> getCities() {
-        return cityRepository.findAll();
-    }
-
-    @PostMapping("cities")
+    @PostMapping("")
     public City createCity(@RequestBody City city) {
         return cityRepository.save(city);
+    }
+
+    @GetMapping("{id}")
+    public Optional<City> getCityById(@PathVariable String id){
+        return cityRepository.findById(id);
+    }
+
+    @GetMapping("")
+    public List<City> searchCitiesByName(@RequestParam String name) {
+        return cityRepository.findCitiesByNameStartsWithIgnoreCase(name);
     }
 
 }

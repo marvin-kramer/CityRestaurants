@@ -16,7 +16,7 @@ public class CityRepoTest extends ApplicationTests{
 
     @Test
     public void getCityByName(){
-        City city = cityRepository.findByName("Hongkong");
+        List<City> city = cityRepository.findCitiesByNameStartsWithIgnoreCase("Hongkong");
 
         Restaurant lungKingHeen = new Restaurant("lung_king_heen_id", "Lung King Heen",
                 "8 Finance St, Central, Hongkong", "Exquisite kantonesische Küche");
@@ -31,6 +31,7 @@ public class CityRepoTest extends ApplicationTests{
         City hongKongCity = new City("6565c69982143bd24d5d687c", "Hongkong",
                 "Hongkong", "999077", restaurants);
 
-        Assertions.assertEquals(city, hongKongCity);
+        List<City> expectedCities = List.of(hongKongCity);
+        Assertions.assertArrayEquals(city.toArray(), expectedCities.toArray());
     }
 }
