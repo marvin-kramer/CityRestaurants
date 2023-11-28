@@ -8,51 +8,91 @@ db.cities.insertMany([
     "name": "Paris",
     "country": "Frankreich",
     "postal_code": "75000",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "le_jules_verne_id" },
+      { "$ref": "restaurants", "$id": "l_astrance_id" }
+    ]
   },
   {
     "name": "Tokio",
     "country": "Japan",
     "postal_code": "100-0001",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "sukiyabashi_jiro_id" },
+      { "$ref": "restaurants", "$id": "narisawa_id" }
+    ]
   },
   {
     "name": "New York City",
     "country": "USA",
     "postal_code": "10001",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "le_bernardin_id" },
+      { "$ref": "restaurants", "$id": "eleven_madison_park_id" }
+    ]
   },
   {
     "name": "London",
     "country": "Großbritannien",
     "postal_code": "SW1A 1AA",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "gordon_ramsay_id" },
+      { "$ref": "restaurants", "$id": "the_ledbury_id" }
+    ]
   },
   {
     "name": "Bangkok",
     "country": "Thailand",
     "postal_code": "10100",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "gaggan_id" },
+      { "$ref": "restaurants", "$id": "nahm_id" }
+    ]
   },
   {
     "name": "Barcelona",
     "country": "Spanien",
     "postal_code": "08001",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "tickets_id" },
+      { "$ref": "restaurants", "$id": "el_celler_de_can_roca_id" }
+    ]
   },
   {
     "name": "Rom",
     "country": "Italien",
     "postal_code": "00100",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "la_pergola_id" },
+      { "$ref": "restaurants", "$id": "roscioli_id" }
+    ]
   },
   {
     "name": "Sydney",
     "country": "Australien",
     "postal_code": "2000",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "quay_id" },
+      { "$ref": "restaurants", "$id": "tetsuyas_id" }
+    ]
   },
   {
     "name": "Singapur",
     "country": "Singapur",
     "postal_code": "018956",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "odette_id" },
+      { "$ref": "restaurants", "$id": "burnt_ends_id" }
+    ]
   },
   {
     "name": "Hongkong",
     "country": "Hongkong",
     "postal_code": "999077",
+    "restaurants": [
+      { "$ref": "restaurants", "$id": "lung_king_heen_id" },
+      { "$ref": "restaurants", "$id": "amber_id" }
+    ]
   }
 ])
 

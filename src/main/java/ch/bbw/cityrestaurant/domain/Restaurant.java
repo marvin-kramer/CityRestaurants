@@ -1,4 +1,4 @@
-package ch.bbw.cityrestaurant;
+package ch.bbw.cityrestaurant.domain;
 
 import lombok.Data;
 import lombok.ToString;
@@ -7,10 +7,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @ToString
-@Document(collection="cities")
-public class City {
+@Document(collection="restaurant")
+public class Restaurant {
     @Id
+    private String id;
     private String name;
-    private String country;
-    private String postalCode;
+    private String address;
+    private String cuisine;
 }
+
