@@ -1,5 +1,6 @@
 package ch.bbw.cityrestaurant.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
@@ -10,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 @ToString
 @Document(collection="cities")
 public class City {
