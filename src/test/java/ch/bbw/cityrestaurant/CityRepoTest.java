@@ -19,10 +19,10 @@ public class CityRepoTest extends ApplicationTests{
         List<City> city = cityRepository.findCitiesByNameStartsWithIgnoreCase("Hongkong");
 
         Restaurant lungKingHeen = new Restaurant("lung_king_heen_id", "Lung King Heen",
-                "8 Finance St, Central, Hongkong", "Exquisite kantonesische Küche");
+                "8 Finance St, Central, Hongkong", "Exquisite kantonesische Küche", "paris_id");
 
         Restaurant amber = new Restaurant("amber_id", "Amber",
-                "15 Queen's Road Central, Hongkong", "Modern europäische Küche mit asiatischem Einfluss");
+                "15 Queen's Road Central, Hongkong", "Modern europäische Küche mit asiatischem Einfluss", "paris_id");
 
         List<Restaurant> restaurants = new ArrayList<>();
         restaurants.add(lungKingHeen);
