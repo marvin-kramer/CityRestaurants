@@ -8,6 +8,27 @@ import java.util.List;
 
 @Repository
 public interface CityRepository extends MongoRepository<City, String> {
-    List<City> findCitiesByNameStartsWithIgnoreCase(String name);
+
+        List<City> findCitiesByNameStartsWithIgnoreCase(String name);
+
+        List<City> findCitiesByNameStartsWithIgnoreCaseAndCountry(String name, String country);
+
+        List<City> findCitiesByNameStartsWithIgnoreCaseAndPostalCode(String name, String postalCode);
+
+        List<City> findCitiesByNameStartsWithIgnoreCaseAndCountryStartsWithIgnoreCaseAndPostalCodeStartsWithIgnoreCase(String name, String country, String postalCode);
+
+        default List<City> searchCities(String name, String country, String postalCode) {
+            if (country == null && postalCode == null) {
+                return findCitiesByNameStartsWithIgnoreCase(name);
+            } else if (country != null && postalCode == null) {
+                return findCitiesByNameStartsWithIgnoreCaseAndCountry(name, country);
+            } else if (country == null && postalCode != null) {
+                return findCitiesByNameStartsWithIgnoreCaseAndPostalCode(name, postalCode);
+            } else {
+                return findCitiesByNameStartsWithIgnoreCaseAndCountryStartsWithIgnoreCaseAndPostalCodeStartsWithIgnoreCase(name, country, postalCode);
+            }
+        }
+
 }
+
 

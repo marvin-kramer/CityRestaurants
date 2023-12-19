@@ -1,8 +1,12 @@
 package ch.bbw.cityrestaurant.repository;
 
-import org.springframework.stereotype.Service;
+import ch.bbw.cityrestaurant.domain.Restaurant;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-@Service
-public class RestaurantRepository {
+import java.util.List;
 
+@Repository
+public interface RestaurantRepository extends MongoRepository<Restaurant, String> {
+    List<Restaurant> findRestaurantByNameStartingWithIgnoreCase(String name);
 }

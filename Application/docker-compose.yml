@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  CityRestaurantsDB:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - ./init-1.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  CityRestaurantsApplication:
+    image: ghcr.io/marvin-kramer/city-restaurants-application
+    ports:
+      - "80:8080"
+    environment:
+      DB_USERNAME: root
+      DB_PASSWORD: 1234
+      DB_DATABASE: cityRestaurantsDB
+      DB_PORT: 27017
+      DB_HOST: CityRestaurantsDB
